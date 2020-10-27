@@ -53,3 +53,17 @@ validatePhone(){
     fi
 }
 validatePhone
+
+validatePassword(){
+    read -p "Enter a valid password: " password
+    passwordPatternLen="^.{8}"
+    if [[ $password =~ $passwordPatternLen ]]
+    then
+        echo "Valid password"
+    else
+        echo "Invalid pass"
+        echo "Try again"
+        validatePassword
+    fi
+}
+validatePassword
