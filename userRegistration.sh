@@ -11,7 +11,7 @@ firstNamePattern="^[A-Z][a-zA-Z]{2,}$"
         echo "First Name is invalid"
     fi
 }
-validateFirstName $firstName
+validateFirstName
 
 validateLastName(){
 read -p "Enter Last Name:" lastName
@@ -24,7 +24,7 @@ lastNamePattern="^[A-Z][a-zA-Z]{2,}$"
     fi
 }
 
-validateLastName $lastName
+validateLastName
 
 validateMail(){
     read -p "Enter mail id: " mail
@@ -38,4 +38,18 @@ validateMail(){
         validateMail
     fi
 }
-validateMail $mail
+validateMail
+
+validatePhone(){
+    read -p "Enter a valid phone number: " phone
+    phonePattern="^(91){1}[ ][6-9]{1}[0-9]{9,9}$"
+    if [[ $phone =~ $phonePattern ]]
+    then
+        echo "Valid phone number"
+    else
+        echo "Invalid phone number"
+        echo "Try again"
+        validatePhone
+    fi
+}
+validatePhone
