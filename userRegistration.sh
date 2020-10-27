@@ -26,3 +26,16 @@ lastNamePattern="^[A-Z][a-zA-Z]{2,}$"
 
 validateLastName $lastName
 
+validateMail(){
+    read -p "Enter mail id: " mail
+    mailPattern="^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$"
+    if [[ $mail =~ $mailPattern ]]
+    then
+        echo "Valid mail"
+    else
+        echo "Invalid mail"
+        echo "Try again"
+        validateMail
+    fi
+}
+validateMail $mail
