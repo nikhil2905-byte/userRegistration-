@@ -59,7 +59,8 @@ validatePassword(){
     passwordPatternLen="^.{8}"
 	 passwordPatternCaps="[A-Z]+"
 	 passwordPatternNum="[0-9]+"
-    if [[ $password =~ $passwordPatternLen ]] && [[ $password =~ $passwordPatternCaps ]] && [[ $password =~ $passwordPatternNum ]]
+	 passwordPatternSpecial="(@ | ! | # | $ | & | ( | ) | - | \` | . | , | ' | \" | * | ~ | < | > | ?)."
+    if [[ $password =~ $passwordPatternLen ]] && [[ $password =~ $passwordPatternCaps ]] && [[ $password =~ $passwordPatternNum ]] && [[ $password =~ $passwordPatternSpecial ]]
     then
         echo "Valid password"
     else
